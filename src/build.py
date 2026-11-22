@@ -27,9 +27,9 @@ BIZ = {
     "address": "Pan Peninsula Square, Canary Wharf, London E14 9HJ",
     "phone_display": "07884 691080",
     "phone_link": "+447884691080",
-    # Shown publicly. Once the domain mailbox forwards correctly, set domain_email_live to true.
-    "email": CONTACT["domain_email"] if CONTACT.get("domain_email_live") else CONTACT["email"],
-    "email_alt": CONTACT["email"] if CONTACT.get("domain_email_live") else "",
+    # Shown publicly on the site.
+    "email": CONTACT["email"],
+    "email_alt": CONTACT["email_alt"],
     # Free form-delivery key from web3forms.com. Blank = the form opens the visitor's email app instead.
     "web3forms_key": CONTACT.get("web3forms_key", ""),
 }
