@@ -20,7 +20,8 @@ CONTACT = json.loads((ROOT / "contact.json").read_text(encoding="utf-8"))
 BIZ = {
     "brand": "Aurova Insure",
     "descriptor": "Outsourced business administration",
-    "company": "SBR Ventures Ltd",
+    "company": "SBR Ventures Limited",
+    "ch_url": "https://find-and-update.company-information.service.gov.uk/company/15417174",
     "company_no": "15417174",
     "reg_office": "Sabichi House, 5 Wadsworth Road, Perivale, London UB6 7JD",
     "address": "Pan Peninsula Square, Canary Wharf, London E14 9HJ",
@@ -50,14 +51,14 @@ PAGES = [
     ("other-businesses/", "Admin Support for Tradespeople, Accountants & SMEs | Aurova Insure",
      "Outsourced admin for tradespeople, accountants and bookkeepers, professional service firms and other UK small businesses: enquiries, quotes, diaries and payment follow-ups.",
      "Other businesses", "Other businesses"),
-    ("about/", "About Aurova Insure | UK-Led Admin Support",
-     "Aurova Insure is a UK-led administration business with a delivery team in Mumbai, India. How we work and what we stand for.",
+    ("about/", "About Aurova Insure (SBR Ventures Limited) | UK-Led Admin Support",
+     "Aurova Insure is a trading name of SBR Ventures Limited (company no. 15417174), a UK-led administration business with a delivery team in Mumbai, India.",
      "About", "About"),
     ("contact/", "Contact Us | Book a Discovery Call | Aurova Insure",
      "Tell us about the administration you'd like to hand over. Book a discovery call or discuss your backlog with Aurova Insure.",
      "Contact", "Contact"),
     ("privacy/", "Privacy Policy | Aurova Insure",
-     "How Aurova Insure (SBR Ventures Ltd) collects and uses personal data, including website enquiries and client work.",
+     "How Aurova Insure (SBR Ventures Limited) collects and uses personal data, including website enquiries and client work.",
      None, "Privacy policy"),
     ("terms/", "Terms of Service | Aurova Insure",
      "Website terms of use and a summary of the terms on which Aurova Insure provides administrative support services.",
@@ -81,6 +82,11 @@ def nav_html(current):
 
 def header(current):
     return f"""<a class="skip" href="#main">Skip to content</a>
+<aside class="topbar" aria-label="Company details">
+  <div class="wrap">
+    <span><strong>{BIZ['brand']}</strong> is a trading name of <strong>{BIZ['company']}</strong><span class="tb-long">, registered in England and Wales</span>, company registration no. <a href="{BIZ['ch_url']}" rel="noopener">{BIZ['company_no']}</a></span>
+  </div>
+</aside>
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="/" aria-label="{BIZ['brand']} home">
@@ -113,6 +119,7 @@ def footer():
       <div>
         <a class="brand" href="/">{LOGO}<span class="brand-text"><span class="brand-name">{BIZ['brand']}</span><span class="brand-sub">{BIZ['descriptor']}</span></span></a>
         <p>Administrative support for UK businesses, managed from London and delivered by a supervised team in India.</p>
+        <p class="small">A trading name of {BIZ['company']}.</p>
       </div>
       <div>
         <h2 class="footer-h">Who we help</h2>
@@ -145,7 +152,7 @@ def footer():
       </div>
     </div>
     <div class="legal">
-      <p>{BIZ['brand']} is a trading name of {BIZ['company']}, registered in England and Wales, company number {BIZ['company_no']}. Registered office: {BIZ['reg_office']}.</p>
+      <p>{BIZ['brand']} is a trading name of {BIZ['company']}, registered in England and Wales, company number <a href="{BIZ['ch_url']}" rel="noopener">{BIZ['company_no']}</a> (view on Companies House). Registered office: {BIZ['reg_office']}.</p>
       <p>We provide administrative support only. We are not an insurer and do not sell insurance. We do not give legal, financial, accounting or tax advice.</p>
       <p>&copy; <span data-year>2026</span> {BIZ['company']}. This site uses no tracking or advertising cookies.</p>
     </div>
@@ -173,6 +180,8 @@ def org_ld():
         "@id": BASE + "/#organisation",
         "name": BIZ["brand"],
         "legalName": BIZ["company"],
+        "alternateName": "SBR Ventures Limited trading as Aurova Insure",
+        "sameAs": [BIZ["ch_url"]],
         "description": "Outsourced business administration for UK letting agents and small businesses, delivered by a supervised team in India.",
         "url": BASE + "/",
         "logo": BASE + "/assets/img/logo-512.png",
