@@ -25,6 +25,7 @@ BIZ = {
     "company_no": "15417174",
     "reg_office": "Sabichi House, 5 Wadsworth Road, Perivale, London UB6 7JD",
     "address": "Sabichi House, 5 Wadsworth Road, Perivale, London UB6 7JD",
+    "cal_url": "https://cal.com/gurpreetaurova/discovery-call",
     "phone_display": "07884 691080",
     "phone_link": "+447884691080",
     # Shown publicly on the site.
@@ -82,7 +83,7 @@ def nav_html(current):
             continue
         cur = ' aria-current="page"' if p == current else ""
         links.append(f'<a href="/{p}"{cur}>{label}</a>')
-    links.append('<a class="btn btn-primary btn-sm nav-cta" href="/contact/?topic=discovery">Book a discovery call</a>')
+    links.append(f'<a class="btn btn-primary btn-sm nav-cta" href="{BIZ["cal_url"]}" rel="noopener">Book a discovery call</a>')
     return "\n        ".join(links)
 
 
@@ -105,7 +106,7 @@ def header(current):
     </nav>
     <div class="header-cta">
       <a class="header-phone" href="tel:{BIZ['phone_link']}">{BIZ['phone_display']}</a>
-      <a class="btn btn-primary btn-sm" href="/contact/?topic=discovery">Book a discovery call</a>
+      <a class="btn btn-primary btn-sm" href="{BIZ['cal_url']}" rel="noopener">Book a discovery call</a>
     </div>
   </div>
 </header>"""
@@ -153,7 +154,7 @@ def footer():
           <li><a href="tel:{BIZ['phone_link']}">{BIZ['phone_display']}</a></li>
           {email_items()}
           <li>{BIZ['address']}</li>
-          <li><a href="/contact/?topic=discovery">Book a discovery call</a></li>
+          <li><a href="{BIZ['cal_url']}" rel="noopener">Book a discovery call</a></li>
           <li><a href="/free-health-check/">Free 25-property health check</a></li>
         </ul>
       </div>
