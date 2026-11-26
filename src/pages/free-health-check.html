@@ -1,0 +1,187 @@
+<section class="page-head">
+  <div class="wrap">
+    {{breadcrumb}}
+    <span class="eyebrow">For letting agents in England</span>
+    <h1>A free Renters' Rights Act health check on 25 of your properties</h1>
+    <p class="lead">We check 25 of your managed tenancies against the paperwork, safety and deposit rules, then send you a clear red, amber and green report showing what to fix first. No cost and no obligation.</p>
+    <div class="btn-row mt2">
+      <a class="btn btn-primary" href="#claim">Claim your free health check</a>
+      <a class="btn btn-light" href="/sample-report/">See a sample report</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What we check</span>
+      <h2>Every property, checked on the same 10 points</h2>
+      <p class="lead">These are the records that matter most since the Renters' Rights Act came into force on 1 May 2026, and the ones most often missing from a busy agency's files.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Tenancy and deposit</h3>
+        <ul class="checklist">
+          <li>Tenancy agreement or written statement of terms on file</li>
+          <li>Renters' Rights Act Information Sheet given to existing tenants, with a record of when</li>
+          <li>Deposit protected, within the 5-week cap, with prescribed information served</li>
+          <li>Rent increases made by the statutory notice, no more than once a year</li>
+          <li>A dated record that a Right to Rent check was done (we never ask for ID documents)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Safety and licensing</h3>
+        <ul class="checklist">
+          <li>Gas safety record in date (every 12 months)</li>
+          <li>Electrical safety report (EICR) in date (every 5 years)</li>
+          <li>EPC on file and rated E or better</li>
+          <li>Smoke and carbon monoxide alarm checks recorded</li>
+          <li>HMO or selective licence in place where the property needs one</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From first call to report in about a week</h2>
+    </div>
+    <ol class="steps steps-row">
+      <li><h3>Quick call</h3><p>A 15-minute call to agree which 25 properties to check and which files you'll send.</p></li>
+      <li><h3>Paperwork first</h3><p>We sign a confidentiality and data processing agreement with you before any files are shared.</p></li>
+      <li><h3>You export, we check</h3><p>You send exported files from your CRM. Our team works through them, and a person checks every finding.</p></li>
+      <li><h3>Your report</h3><p>Within 5 working days of receiving the files, you get the report and a 20-minute call to talk it through.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">What you get</span>
+      <h2>A report you can act on the same day</h2>
+      <ul class="checklist">
+        <li>A one-page summary: how many properties are green, amber and red</li>
+        <li>The issues to fix first, in order of urgency, with the evidence needed to close each one</li>
+        <li>A property-by-property register you can keep using</li>
+        <li>Upcoming expiry dates for the next 90 days</li>
+      </ul>
+      <a class="btn btn-dark" href="/sample-report/">See a sample report</a>
+    </div>
+    <div class="card entity-card">
+      <h3>How we handle your data</h3>
+      <ul class="mb0">
+        <li>We work only from files you export to us. We don't need logins to your systems for the health check.</li>
+        <li>Please don't send passports, ID, references or bank details. We don't need them.</li>
+        <li>Files are kept in a secure, access-controlled workspace and deleted once the report is delivered, unless you ask us to keep them.</li>
+        <li>You stay in control of your records. Nothing is changed in your systems and nothing is sent to your landlords or tenants.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section anchor-offset" id="claim">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">Claim your free health check</span>
+      <h2>Tell us a little about your agency</h2>
+      <p>We'll reply within one working day to arrange the call. We can only take on a small number of health checks each month, so we work through requests in the order they arrive.</p>
+      <div class="callout callout-muted">
+        <p class="small mb0">One free health check per agency, for letting agents and property managers managing homes in England. The report is an administrative review of your records, not legal advice and not a safety inspection. Decisions about what to do stay with you.</p>
+      </div>
+    </div>
+    <form id="enquiry-form" class="card" novalidate data-email="{{email}}" data-access-key="{{web3forms_key}}" aria-describedby="form-privacy">
+      <input type="hidden" name="enquiry_type" value="Free health check (25 properties)">
+      <div class="form-grid">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required maxlength="100">
+        </div>
+        <div class="field">
+          <label for="business">Agency name</label>
+          <input id="business" name="business" type="text" autocomplete="organization" required maxlength="120">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required maxlength="160">
+        </div>
+        <div class="field">
+          <label for="phone">Telephone <span class="opt">(optional)</span></label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="30">
+        </div>
+        <div class="field">
+          <label for="properties">Managed properties</label>
+          <select id="properties" name="properties" required>
+            <option value="">Please choose</option>
+            <option>Under 50</option>
+            <option>50 to 150</option>
+            <option>150 to 300</option>
+            <option>Over 300</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="crm">Property software</label>
+          <select id="crm" name="crm" required>
+            <option value="">Please choose</option>
+            <option>Alto</option>
+            <option>Reapit</option>
+            <option>Street</option>
+            <option>Arthur Online</option>
+            <option>Jupix</option>
+            <option>Other</option>
+            <option>Spreadsheets or paper files</option>
+          </select>
+        </div>
+        <div class="field field-full">
+          <label for="message">Anything we should know? <span class="opt">(optional)</span></label>
+          <textarea id="message" name="message" maxlength="2000" aria-describedby="message-hint"></textarea>
+          <span class="hint" id="message-hint">For example, an area you're worried about. Please don't include tenants' or landlords' personal details.</span>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="botcheck">Leave this box empty</label>
+          <input type="checkbox" id="botcheck" name="botcheck" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="field field-full">
+          <label class="check" for="consent"><input id="consent" name="consent" type="checkbox" required> <span>I'm happy for Aurova Insure to use these details to reply to my request, as described in the <a href="/privacy/">privacy policy</a>.</span></label>
+        </div>
+      </div>
+      <p class="hint mt2" id="form-privacy">We use your details only to reply to you. We don't add you to a mailing list or share your details for marketing.</p>
+      <button class="btn btn-primary" type="submit">Claim my free health check</button>
+      <div id="form-status" class="form-status" tabindex="-1" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap narrow">
+    <div class="section-head">
+      <span class="eyebrow">Questions</span>
+      <h2>About the free health check</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Is it really free?</summary>
+        <div class="answer"><p>Yes. There's no charge and no obligation to buy anything afterwards. We offer it because it's the clearest way to show you how we work.</p></div>
+      </details>
+      <details>
+        <summary>Why only 25 properties?</summary>
+        <div class="answer"><p>Every finding is checked by a person, so each health check takes real time. Twenty-five properties is enough to show the pattern across a portfolio. If you'd like the rest checked, we'll quote for a full audit.</p></div>
+      </details>
+      <details>
+        <summary>Which files will you need?</summary>
+        <div class="answer"><p>Usually an export of tenancies and properties from your CRM, your certificate records (gas, EICR, EPC), deposit scheme records and copies of the documents given to tenants. We'll send you a short checklist after the first call.</p></div>
+      </details>
+      <details>
+        <summary>Will you contact my landlords or tenants?</summary>
+        <div class="answer"><p>No. We work only with you. Nothing is sent to anyone else and nothing is changed in your systems.</p></div>
+      </details>
+      <details>
+        <summary>Is this legal advice?</summary>
+        <div class="answer"><p>No. It's an administrative review of whether the expected records are on file and in date. Where something needs a legal view, we'll say so and you can take advice from your own solicitor or professional body.</p></div>
+      </details>
+    </div>
+  </div>
+</section>

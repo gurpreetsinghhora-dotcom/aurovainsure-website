@@ -25,6 +25,10 @@
   var y = document.querySelector("[data-year]");
   if (y) y.textContent = String(new Date().getFullYear());
 
+  // Print buttons
+  var printBtn = document.querySelector("[data-print]");
+  if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
+
   // Enquiry form
   var form = document.getElementById("enquiry-form");
   if (!form) return;
@@ -58,41 +62,30 @@
     var accessKey = form.getAttribute("data-access-key") || "";
     var button = form.querySelector('button[type="submit"]');
 
-    var summary =
-      "Name: " + data.get("name") + "\n" +
-      "Business: " + data.get("business") + "\n" +
-      "Email: " + data.get("email") + "\n" +
-      "Telephone: " + (data.get("phone") || "-") + "\n" +
-      "Type of business: " + data.get("business_type") + "\n" +
-      "Enquiry: " + data.get("enquiry_type") + "\n" +
-      "Support needed: " + data.get("support") + "\n\n" +
-      data.get("message");
+    var labels = { name: "Name", business: "Business", email: "Email", phone: "Telephone", business_type: "Type of business",
+      enquiry_type: "Enquiry", support: "Support needed", properties: "Managed properties", crm: "Property software", message: "Message" };
+    var payload = { access_key: accessKey, from_name: "Aurova Insure website", botcheck: false };
+    var lines = [];
+    data.forEach(function (value, key) {
+      if (key === "botcheck" || key === "consent") return;
+      payload[key] = value;
+      lines.push((labels[key] || key) + ": " + (value || "-"));
+    });
+    var subject = "Website enquiry: " + (data.get("enquiry_type") || "General enquiry") + " - " + data.get("business");
+    payload.subject = subject;
+    var summary = lines.join("\n");
 
     // Without a form-delivery key, open the visitor's own email app with the enquiry ready to send.
     if (!accessKey) {
       var to = form.getAttribute("data-email");
-      var subject = "Website enquiry: " + data.get("enquiry_type") + " - " + data.get("business");
       window.location.href = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(summary);
       show("ok", "Your email app should now open with your enquiry ready to send. If it doesn't, email us at " + to + " or call 07884 691080.");
       return;
     }
 
+    var buttonText = button.textContent;
     button.disabled = true;
     button.textContent = "Sending...";
-    var payload = {
-      access_key: accessKey,
-      subject: "Website enquiry: " + data.get("enquiry_type") + " - " + data.get("business"),
-      from_name: "Aurova Insure website",
-      name: data.get("name"),
-      email: data.get("email"),
-      business: data.get("business"),
-      phone: data.get("phone") || "",
-      business_type: data.get("business_type"),
-      enquiry_type: data.get("enquiry_type"),
-      support: data.get("support"),
-      message: data.get("message"),
-      botcheck: false
-    };
     fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -102,7 +95,7 @@
       .then(function (res) {
         if (res.ok && res.j.success) {
           form.reset();
-          show("ok", "Thank you. Your enquiry has been sent and we'll reply within one working day.");
+          show("ok", "Thank you. Your request has been sent and we'll reply within one working day.");
         } else {
           throw new Error("send failed");
         }
@@ -112,7 +105,7 @@
       })
       .finally(function () {
         button.disabled = false;
-        button.textContent = "Send enquiry";
+        button.textContent = buttonText;
       });
   });
 })();

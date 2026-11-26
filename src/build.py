@@ -24,7 +24,7 @@ BIZ = {
     "ch_url": "https://find-and-update.company-information.service.gov.uk/company/15417174",
     "company_no": "15417174",
     "reg_office": "Sabichi House, 5 Wadsworth Road, Perivale, London UB6 7JD",
-    "address": "Pan Peninsula Square, Canary Wharf, London E14 9HJ",
+    "address": "Sabichi House, 5 Wadsworth Road, Perivale, London UB6 7JD",
     "phone_display": "07884 691080",
     "phone_link": "+447884691080",
     # Shown publicly on the site.
@@ -57,6 +57,12 @@ PAGES = [
     ("contact/", "Contact Us | Book a Discovery Call | Aurova Insure",
      "Tell us about the administration you'd like to hand over. Book a discovery call or discuss your backlog with Aurova Insure.",
      "Contact", "Contact"),
+    ("free-health-check/", "Free Renters' Rights Act Health Check for Letting Agents | Aurova Insure",
+     "A free, no-obligation compliance health check on 25 of your managed properties: tenancy, deposit, gas, EICR, EPC, alarms and licensing, with a red, amber and green report.",
+     None, "Free health check"),
+    ("sample-report/", "Sample Health Check Report | Aurova Insure",
+     "See an example of the red, amber and green health check report Aurova Insure prepares for letting agents, using a fictional agency.",
+     None, "Sample report"),
     ("privacy/", "Privacy Policy | Aurova Insure",
      "How Aurova Insure (SBR Ventures Limited) collects and uses personal data, including website enquiries and client work.",
      None, "Privacy policy"),
@@ -148,6 +154,7 @@ def footer():
           {email_items()}
           <li>{BIZ['address']}</li>
           <li><a href="/contact/?topic=discovery">Book a discovery call</a></li>
+          <li><a href="/free-health-check/">Free 25-property health check</a></li>
         </ul>
       </div>
     </div>
@@ -190,9 +197,9 @@ def org_ld():
         "email": BIZ["email"],
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Pan Peninsula Square, Canary Wharf",
+            "streetAddress": "Sabichi House, 5 Wadsworth Road, Perivale",
             "addressLocality": "London",
-            "postalCode": "E14 9HJ",
+            "postalCode": "UB6 7JD",
             "addressCountry": "GB",
         },
         "areaServed": {"@type": "Country", "name": "United Kingdom"},
