@@ -205,8 +205,8 @@ def head(path, title, desc, extra_ld, robots="index, follow"):
     ld_html = "\n".join(
         f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>' for ld in extra_ld if ld
     )
-    csp = ("default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; "
-           "connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com mailto:; "
+    csp = ("default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self'; img-src 'self' data:; font-src 'self'; "
+           "connect-src 'self' https://api.web3forms.com https://cloudflareinsights.com; form-action 'self' https://api.web3forms.com mailto:; "
            "base-uri 'self'; object-src 'none'; frame-src 'none'")
     return f"""<!DOCTYPE html>
 <html lang="en-GB">
@@ -237,6 +237,7 @@ def head(path, title, desc, extra_ld, robots="index, follow"):
 <link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css">
 {ld_html}
+<!-- Cloudflare Web Analytics (cookieless) --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "e048b4566db244b88958bd933ed53e7d"}}'></script>
 </head>"""
 
 
